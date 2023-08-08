@@ -14,7 +14,7 @@ ARG GOARCH=amd64
 ARG GOOS=linux
 RUN make ARCH=${GOARCH} OS=${GOOS} docker
 
-FROM alpine:latest
+FROM alpine:3.18.3
 EXPOSE 8080
 HEALTHCHECK --retries=10 CMD ["wget", "-qO-", "http://localhost:8080/health"]
 RUN apk add --update --no-cache bash ca-certificates
